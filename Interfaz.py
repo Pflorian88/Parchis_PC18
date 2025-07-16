@@ -4,9 +4,18 @@ def mostrar_tablero(tablero_externo, zonas_llegada, jugadores):
 
   
     print("\nTablero Externo:")
-    for i, casilla in enumerate(tablero_externo):
-        fichas_en_casilla = ", ".join([f"{f['jugador'][0].upper()}{f['id']}" for f in casilla])
-        print(f"Casilla {i}: [{fichas_en_casilla}]")
+
+    num_columnas = 4
+    num_filas = (len(tablero_externo) + num_columnas - 1) // num_columnas
+
+    for fila in range(num_filas):
+        linea = ""
+        for col in range(num_columnas):
+            idx = fila + col * num_filas
+            if idx < len(tablero_externo):
+                fichas_en_casilla = ", ".join([f"{f['jugador'][0].upper()}{f['id']}" for f in tablero_externo[idx]])
+                linea += f"Casilla {idx}: [{fichas_en_casilla}]\t"
+        print(linea)
 
     print("\nZonas de Llegada:")
     for color, zona in zonas_llegada.items():
