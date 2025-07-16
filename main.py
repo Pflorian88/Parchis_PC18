@@ -1,4 +1,5 @@
-from Tablero import NUM_CASILLAS_EXTERNAS, ENTRADAS_LLEGADA, SALIDAS_JUGADORES, inicializar_tablero, inicializar_zonas_llegada, es_casilla_segura
+from Tablero import NUM_CASILLAS_EXTERNAS, ENTRADAS_LLEGADA, SALIDAS_JUGADORES, inicializar_tablero, inicializar_zonas_llegada, es_casilla_segura, CASILLAS_SEGURAS, SALIDAS_JUGADORES 
+
 from Logica import inicializar_jugadores_data, actualizar_turno
 import random
 def main():
