@@ -1,3 +1,4 @@
+import random
 def lanzar_dados():
 
     dado1 = random.randint(1, 6)
