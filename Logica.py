@@ -1,3 +1,4 @@
+from Tablero import NUM_CASILLAS_EXTERNAS, ENTRADAS_LLEGADA, SALIDAS_JUGADORES, inicializar_tablero, inicializar_zonas_llegada, es_casilla_segura
 import random
 def lanzar_dados():
 
