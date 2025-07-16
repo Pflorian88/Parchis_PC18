@@ -1,3 +1,6 @@
+from Tablero import NUM_CASILLAS_EXTERNAS, ENTRADAS_LLEGADA, SALIDAS_JUGADORES, inicializar_tablero, inicializar_zonas_llegada, es_casilla_segura
+from Logica import inicializar_jugadores_data, actualizar_turno
+import random
 def main():
     tablero_externo = inicializar_tablero()
     zonas_llegada = inicializar_zonas_llegada()
