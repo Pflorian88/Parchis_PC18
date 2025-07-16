@@ -246,3 +246,56 @@ def mover_ficha(tablero_externo, zonas_llegada, jugador_actual_data, ficha, paso
             return False, 0, 0
 
     return False, 0, 0 
+def capturar_ficha(ficha_capturada):
+
+    ficha_capturada["estado"] = "carcel"
+    ficha_capturada["posicion"] = None
+
+def aplicar_bonus_movimiento(tablero_externo, zonas_llegada, jugador_actual_data, pasos_bonus):
+
+    print(f"¡Aplicando bonus de {pasos_bonus} pasos!")
+    opciones_bonus = [f for f in jugador_actual_data["fichas"] if f["estado"] in ["en_juego", "llegada"]]
+
+    if not opciones_bonus:
+        print("No hay fichas para mover con el bonus.")
+        return False
+
+    if len(opciones_bonus) == 1:
+        ficha_elegida = opciones_bonus[0]
+        print(f"Movimiento automático de {ficha_elegida['jugador']}-{ficha_elegida['id']} con el bonus.")
+    else:
+        print("Elige una ficha para mover con el bonus:")
+        for i, ficha in enumerate(opciones_bonus):
+            print(f"  {i+1}. {ficha['jugador']}-{ficha['id']} (Estado: {ficha['estado']}, Pos: {ficha['posicion']})")
+
+        while True:
+            try:
+                seleccion = int(input("Selecciona el número de la ficha: "))
+                if 1 <= seleccion <= len(opciones_bonus):
+                    ficha_elegida = opciones_bonus[seleccion - 1]
+                    break
+                else:
+                    print("Número inválido. Intenta de nuevo.")
+            except ValueError:
+                print("Entrada no válida. Por favor, ingresa un número.")
+
+    movimiento_exitoso, _, _ = mover_ficha(tablero_externo, zonas_llegada, jugador_actual_data, ficha_elegida, pasos_bonus)
+    if movimiento_exitoso:
+        print(f"Ficha {ficha_elegida['jugador']}-{ficha_elegida['id']} movida {pasos_bonus} pasos de bonus.")
+    else:
+        print(f"No se pudo mover la ficha {ficha_elegida['jugador']}-{ficha_elegida['id']} con el bonus.")
+
+    return movimiento_exitoso
+def actualizar_turno(jugadores, jugador_actual_idx, dados_son_par):
+
+    jugador_actual_color = list(jugadores.keys())[jugador_actual_idx]
+
+    if dados_son_par:
+        jugadores[jugador_actual_color]["pares_consecutivos"] += 1
+        print("¡Par! Repites turno.")
+        return jugador_actual_idx 
+    else:
+        jugadores[jugador_actual_color]["pares_consecutivos"] = 0
+        return (jugador_actual_idx + 1) % len(jugadores)
+
+
