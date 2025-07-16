@@ -14,7 +14,7 @@ def mostrar_tablero(tablero_externo, zonas_llegada, jugadores):
             idx = fila + col * num_filas
             if idx < len(tablero_externo):
                 fichas_en_casilla = ", ".join([f"{f['jugador'][0].upper()}{f['id']}" for f in tablero_externo[idx]])
-                linea += f"Casilla {idx}: [{fichas_en_casilla}]" + "      "
+                linea += f"Casilla {idx}: [{fichas_en_casilla}]" .ljust(35)
         print(linea)
 
     print("\nZonas de Llegada:")
