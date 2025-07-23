@@ -33,6 +33,7 @@ Integrantes:
 3. Estructura de archivos esperada:
 
    parques-un/
+
    ├── main.py
 
    ├── Tablero.py
@@ -74,4 +75,4 @@ Esto te permitirá ingresar manualmente los valores de los dados para probar cas
 ENLACE AL VIDEO EXPLICATIVO
 ----------------------------------------
 
-
+https://www.youtube.com/watch?v=7AuOWuBg_ZY
