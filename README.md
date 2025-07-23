@@ -34,17 +34,21 @@ Integrantes:
 
    parques-un/
    ├── main.py
+
    ├── Tablero.py
+
    ├── Logica.py
+
    ├── Interfaz.py
+
    └── README.txt
 
-4. Ejecutar el programa:
+5. Ejecutar el programa:
    Abre una terminal o línea de comandos, navega hasta la carpeta del proyecto y ejecuta:
 
    python main.py
 
-5. Modo de juego:
+6. Modo de juego:
    - El programa solicita cuántos jugadores participarán (entre 2 y 4).
    - Cada jugador debe ingresar su nombre.
    - En cada turno, el programa lanza dos dados y muestra las posibles acciones.
